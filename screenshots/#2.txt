@@ -1,0 +1,158 @@
+Started by user Maryna Yatskevych
+Running as SYSTEM
+Building remotely on slave1 in workspace /Users/maryna/Desktop/jenkins-slave/workspace/taf-tests
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /Users/maryna/Desktop/jenkins-slave/workspace/taf-tests/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/marynayatskevych/TAF-patterns.git # timeout=10
+Fetching upstream changes from https://github.com/marynayatskevych/TAF-patterns.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.3 (Apple Git-146)'
+ > git fetch --tags --force --progress -- https://github.com/marynayatskevych/TAF-patterns.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision ec55b69f29c2acd7e4539efb6cdfd3a1e50be3e1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ec55b69f29c2acd7e4539efb6cdfd3a1e50be3e1 # timeout=10
+Commit message: "Update README.md"
+First time build. Skipping changelog.
+[taf-tests] $ mvn -f pom.xml "-D-DsuiteXmlFile=src/test/resources/smoke.xml, regression.xml -Dbrowser=chrome, firefox -Denv=dev, prod" clean test
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.example:TAF-patterns:jar:1.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.testng:testng:jar -> duplicate declaration of version ${testng.version} @ line 68, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------------< com.example:TAF-patterns >----------------------
+[INFO] Building TAF-patterns 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ TAF-patterns ---
+[INFO] Deleting /Users/maryna/Desktop/jenkins-slave/workspace/taf-tests/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ TAF-patterns ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ TAF-patterns ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 12 source files with javac [debug target 21] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 21
+  not setting the location of system modules may lead to class files that cannot run on JDK 21
+    --release 21 is recommended instead of -source 21 -target 21 because it sets the location of system modules automatically
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ TAF-patterns ---
+[INFO] Copying 4 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ TAF-patterns ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 4 source files with javac [debug target 21] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 21
+  not setting the location of system modules may lead to class files that cannot run on JDK 21
+    --release 21 is recommended instead of -source 21 -target 21 because it sets the location of system modules automatically
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ TAF-patterns ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+20:10:12.741 [main] WARN  [] TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+20:10:12.743 [main] WARN  [] TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+20:10:12.744 [main] WARN  [] TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+20:10:12.941 [main] INFO  [TEST] TestListener - [ACTION] Test suite started: Surefire test
+20:10:12.993 [main] INFO  [ACTION] BaseTest - Initializing WebDriver for browser: chrome
+20:10:14.013 [main] INFO  [] WebDriverManager - Using chromedriver 136.0.7103.113 (resolved driver for Chrome 136)
+20:10:14.044 [main] INFO  [] WebDriverManager - Exporting webdriver.chrome.driver as /Users/maryna/.cache/selenium/chromedriver/mac64/136.0.7103.113/chromedriver
+May 25, 2025 8:10:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 136
+May 25, 2025 8:10:16 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 136.0.7103.114. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+20:10:16.630 [main] INFO  [ACTION] DriverFactory - Browser window maximized
+20:10:18.538 [main] INFO  [TEST] TestListener - [ACTION] Starting test execution: testVerifyThatItemWithCurrentNameIsExistInList
+20:10:23.567 [main] INFO  [ACTION] ProductSearchTest - Starting test: Verify item appears in search results
+20:10:23.592 [main] INFO  [ACTION] ProductSearchTest - Searching for item: asus
+20:10:23.593 [main] INFO  [TEST] HomePage - Searching for product with text: 'asus'
+20:10:29.114 [main] ERROR [ERROR] HomePage - No products found to click!
+20:10:29.457 [main] INFO  [ACTION] ProductSearchTest - Clicking first filtered product...
+20:10:31.491 [main] INFO  [ACTION] ProductSearchTest - Getting product title from product page...
+20:10:31.526 [main] WARN  [ERROR] HighlightingListener - Element not found for highlighting: By.cssSelector: h1.title__font
+20:10:32.641 [main] INFO  [TEST] ProductSearchTest - Asserting all
+20:10:32.653 [main] INFO  [TEST] TestListener - [ACTION] Test passed: testVerifyThatItemWithCurrentNameIsExistInList
+20:10:32.656 [main] INFO  [ACTION] BaseTest - Closing WebDriver
+20:10:32.970 [main] INFO  [ACTION] DriverFactory - Driver closed
+20:10:32.975 [main] INFO  [ACTION] BaseTest - Initializing WebDriver for browser: chrome
+20:10:32.988 [main] INFO  [] WebDriverManager - Using chromedriver 136.0.7103.113 (resolved driver for Chrome 136)
+20:10:33.001 [main] INFO  [] WebDriverManager - Exporting webdriver.chrome.driver as /Users/maryna/.cache/selenium/chromedriver/mac64/136.0.7103.113/chromedriver
+May 25, 2025 8:10:35 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 136
+May 25, 2025 8:10:35 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 136.0.7103.114. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+20:10:35.470 [main] INFO  [ACTION] DriverFactory - Browser window maximized
+20:10:36.579 [main] INFO  [TEST] TestListener - [ACTION] Starting test execution: testAddProductTo
+20:10:41.582 [main] INFO  [TEST] AddToCartTest - Test: Add item to cart started
+20:10:41.584 [main] INFO  [ACTION] AddToCartTest - Searching for 'notebook'
+20:10:41.585 [main] INFO  [TEST] HomePage - Searching for product with text: 'ноутбук'
+20:10:48.262 [main] INFO  [ACTION] AddToCartTest - Checking that search results are visible
+20:10:49.306 [main] INFO  [ACTION] AddToCartTest - Clicking the first product from filtered list
+20:10:51.449 [main] INFO  [ACTION] AddToCartTest - Adding product to cart
+20:10:51.449 [main] INFO  [ACTION] ProductPage - Adding product to cart...
+20:10:51.686 [main] INFO  [ACTION] AddToCartTest - Opening cart
+20:10:51.686 [main] INFO  [ACTION] ProductPage - Opening cart...
+20:10:52.923 [main] INFO  [ACTION] AddToCartTest - Checking if modal with cart is visible
+20:10:53.290 [main] INFO  [TEST] CartModalPage - Cart modal is visible
+20:10:53.290 [main] INFO  [ACTION] AddToCartTest - Checking if cart has at least one item
+20:10:53.414 [main] INFO  [TEST] AddToCartTest - Actual product title in cart: '-14%
+Ноутбук ASUS TUF Gaming F15 FX507ZC4-HN083 (90NR0GW1-M006E0) Mecha Gray / 15.6" IPS Full HD 144 Гц / Intel Core i5-12500H / RAM 16 ГБ / SSD 512 ГБ / GeForce RTX 3050, 4 ГБ
+Продавець: Rozetka
+41 999₴
+35 999₴
+Додаткові послуги
+ОС Windows та окремо встановлення ОС Windows
+Сервіси гарантії
+Сервіс для негарантійних випадків
+Показати ще 4 послуги ↓'
+20:10:53.415 [main] INFO  [TEST] AddToCartTest - Expected to contain: 'ноутбук'
+20:10:53.415 [main] INFO  [TEST] AddToCartTest - Asserting all verifications
+20:10:53.417 [main] INFO  [TEST] TestListener - [ACTION] Test passed: testAddProductTo
+20:10:53.418 [main] INFO  [ACTION] BaseTest - Closing WebDriver
+20:10:53.792 [main] INFO  [ACTION] DriverFactory - Driver closed
+20:10:53.795 [main] INFO  [ACTION] BaseTest - Initializing WebDriver for browser: chrome
+20:10:53.808 [main] INFO  [] WebDriverManager - Using chromedriver 136.0.7103.113 (resolved driver for Chrome 136)
+20:10:53.819 [main] INFO  [] WebDriverManager - Exporting webdriver.chrome.driver as /Users/maryna/.cache/selenium/chromedriver/mac64/136.0.7103.113/chromedriver
+May 25, 2025 8:10:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 136
+May 25, 2025 8:10:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 136.0.7103.114. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+20:10:56.233 [main] INFO  [ACTION] DriverFactory - Browser window maximized
+20:11:00.636 [main] INFO  [TEST] TestListener - [ACTION] Starting test execution: testFilterByBrandSamsung
+20:11:05.640 [main] INFO  [] FilterByBrandTest - Test: Filter by brand 'Samsung' started
+20:11:05.642 [main] INFO  [ACTION] FilterByBrandTest - Searching for 'headphones'
+20:11:05.642 [main] INFO  [TEST] HomePage - Searching for product with text: 'headphones'
+20:11:07.450 [main] INFO  [DEBUG] FilterByBrandTest - Checking if category items are present
+20:11:15.066 [main] INFO  [ACTION] FilterByBrandTest - Selecting brand 'Samsung'
+20:11:15.066 [main] INFO  [ACTION] HomePage - Selecting brand filter: Samsung
+20:11:15.175 [main] INFO  [ACTION] BasePage - Scrolling to element: Decorated {[[ChromeDriver: chrome on mac (24016f85bb7f05bf788f419dbcce95dd)] -> xpath: //a[contains(@class,'checkbox-filter-link') and contains(.,'Samsung')]]}
+20:11:16.772 [main] INFO  [DEBUG] FilterByBrandTest - Verifying filtered results match brand 'Samsung'
+20:11:17.388 [main] INFO  [TEST] FilterByBrandTest - Asserting all
+20:11:17.390 [main] INFO  [TEST] TestListener - [ACTION] Test passed: testFilterByBrandSamsung
+20:11:17.391 [main] INFO  [ACTION] BaseTest - Closing WebDriver
+20:11:17.708 [main] INFO  [ACTION] DriverFactory - Driver closed
+20:11:22.725 [main] INFO  [TEST] TestListener - [ACTION] Test suite finished: Surefire test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 76.178 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:20 min
+[INFO] Finished at: 2025-05-25T20:11:23+03:00
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
